@@ -1,9 +1,6 @@
 @description('Optional. The location to deploy to.')
 param location string = resourceGroup().location
 
-@description('Required. The name of the Storage Account to create.')
-param storageAccountName string
-
 @description('Required. The name of the Managed Identity to create.')
 param managedIdentityName string
 
@@ -19,15 +16,6 @@ param networkSecurityGroupBastionName string
 resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
   name: managedIdentityName
   location: location
-}
-
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-09-01' = {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
 }
 
 resource maintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigurations@2023-10-01-preview' = {
@@ -200,9 +188,6 @@ resource networkSecurityGroupBastion 'Microsoft.Network/networkSecurityGroups@20
     ]
   }
 }
-
-@description('The resource ID of the created Storage Account.')
-output storageAccountResourceId string = storageAccount.id
 
 @description('The name of the created Managed Identity.')
 output managedIdentityName string = managedIdentity.name
