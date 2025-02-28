@@ -45,7 +45,7 @@ module nestedDependencies 'dependencies.bicep' = {
   params: {
     storageAccountName: 'dep${namePrefix}st${serviceShort}'
     managedIdentityName: 'dep-${namePrefix}-mi-${serviceShort}'
-    maintenanceConfigurationName: 'dep-${namePrefix}-mc-${serviceShort}'
+    maintenanceConfigurationName: 'dep-${namePrefix}-mc-${serviceShort}-${substring(uniqueString(baseTime), 0, 3)}'
     location: enforcedLocation
   }
 }
