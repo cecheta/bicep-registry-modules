@@ -1239,7 +1239,6 @@ module workspace 'br/public:avm/res/machine-learning-services/workspace:<version
         }
       }
     ]
-    provisionNetworkNow: true
     systemDatastoresAuthMode: 'Identity'
     tags: {
       Environment: 'Non-Prod'
@@ -1342,9 +1341,6 @@ module workspace 'br/public:avm/res/machine-learning-services/workspace:<version
         }
       ]
     },
-    "provisionNetworkNow": {
-      "value": true
-    },
     "systemDatastoresAuthMode": {
       "value": "Identity"
     },
@@ -1431,7 +1427,6 @@ param privateEndpoints = [
     }
   }
 ]
-param provisionNetworkNow = true
 param systemDatastoresAuthMode = 'Identity'
 param tags = {
   Environment: 'Non-Prod'
